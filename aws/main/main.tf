@@ -1,7 +1,16 @@
 
-# Creates a VPC
+/*# Creates a VPC
 resource "aws_vpc" "network" {
   cidr_block = "10.0.0.0/16"
+}*/
+
+resource "aws_key_pair" "keypair" {
+  public_key = "${path.cwd}/.ssh/id_rsa.pub"
+  key_name = "First Keypair"
 }
 
-resource "ec2" "" {}
+resource "aws_instance" "test_instance" {
+  ami = "ami-0000736f"
+  instance_type = var.instance_type
+  key_name = aws_key_pair.keypair.key_name
+}
