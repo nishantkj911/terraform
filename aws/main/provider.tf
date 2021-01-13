@@ -10,5 +10,4 @@ terraform {
 
 provider "aws" {
   region = "ap-south-1" // Mumbai region
-  shared_credentials_file = "../credentials/dev_credentials"
 }
