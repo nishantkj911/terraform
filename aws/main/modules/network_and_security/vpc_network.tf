@@ -20,6 +20,7 @@ resource "aws_network_acl_rule" "allow_all_ingress" {
   protocol = "all"
   rule_action = "allow"
   rule_number = 99
+  cidr_block = aws_subnet.my_subnet.cidr_block
 }
 
 resource "aws_network_acl_rule" "allow_all_egress" {
@@ -28,6 +29,7 @@ resource "aws_network_acl_rule" "allow_all_egress" {
   egress = true
   rule_action = "allow"
   rule_number = 99
+  cidr_block = aws_subnet.my_subnet.cidr_block
 }
 
 
