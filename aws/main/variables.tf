@@ -16,7 +16,7 @@ variable "image_id" {
 }
 
 variable "instance_count" {
-  default = 2,
+  default = 2
   type = number
   description = "The number of instances to create"
 }
