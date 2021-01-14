@@ -6,6 +6,18 @@ terraform {
 
     }
   }
+
+  backend "remote" {
+    organization = "nkjcorp"
+
+    workspaces {
+      name = "aws-cli-driven"
+    }
+  }
+
+  credentials "app.terraform.io"{
+  value = "Yusj4UqR1NHBMw.atlasv1.rvXxkeQqnTOzWfGvvto7TQH3k2mIpCWmtimXPJQrJDHlRG73gwykKisq9tHxj3GrxS4"
+  }
 }
 
 provider "aws" {
