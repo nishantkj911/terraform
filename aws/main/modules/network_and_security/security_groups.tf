@@ -18,6 +18,7 @@ resource "aws_security_group_rule" "https_ingress" {
   to_port = 443
   protocol = "tcp"
   security_group_id = aws_security_group.instance_access.id
+  cidr_blocks = ["0.0.0.0/0"]
 }
 
 resource "aws_security_group_rule" "https_egress" {
@@ -26,6 +27,7 @@ resource "aws_security_group_rule" "https_egress" {
   to_port = 443
   protocol = "tcp"
   security_group_id = aws_security_group.instance_access.id
+  cidr_blocks = ["0.0.0.0/0"]
 }
 
 resource "aws_security_group_rule" "dns_egress" {
@@ -34,6 +36,7 @@ resource "aws_security_group_rule" "dns_egress" {
   security_group_id = aws_security_group.instance_access.id
   to_port = 53
   type = "egress"
+  cidr_blocks = ["0.0.0.0/0"]
 }
 
 resource "aws_security_group_rule" "http_ingress" {
@@ -42,6 +45,7 @@ resource "aws_security_group_rule" "http_ingress" {
   to_port = 80
   protocol = "tcp"
   security_group_id = aws_security_group.instance_access.id
+  cidr_blocks = ["0.0.0.0/0"]
 }
 
 resource "aws_security_group_rule" "http_egress" {
@@ -50,6 +54,7 @@ resource "aws_security_group_rule" "http_egress" {
   to_port = 80
   protocol = "tcp"
   security_group_id = aws_security_group.instance_access.id
+  cidr_blocks = ["0.0.0.0/0"]
 }
 
 output "instance_sg_id" {
