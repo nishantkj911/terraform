@@ -9,7 +9,7 @@ resource "aws_security_group_rule" "ssh_ingress" {
   to_port = 22
   protocol = "tcp"
   security_group_id = aws_security_group.instance_access.id
-  cidr_blocks = [aws_subnet.my_subnet.cidr_block]
+  cidr_blocks = ["0.0.0.0/0"]
 }
 
 output "instance_sg_id" {

@@ -19,7 +19,7 @@ resource "aws_network_acl_rule" "allow_all_ingress" {
   network_acl_id = aws_network_acl.my_network_acl.id
   protocol = "all"
   rule_action = "allow"
-  rule_number = 100
+  rule_number = 99
 }
 
 resource "aws_network_acl_rule" "allow_all_egress" {
@@ -27,7 +27,7 @@ resource "aws_network_acl_rule" "allow_all_egress" {
   protocol = "all"
   egress = true
   rule_action = "allow"
-  rule_number = 500
+  rule_number = 99
 }
 
 
