@@ -15,7 +15,6 @@ resource "aws_network_acl" "my_network_acl" {
 }
 
 resource "aws_network_acl_rule" "allow_all_ingress" {
-  vpc_id = aws_vpc.my_vpc.id
   network_acl_id = aws_network_acl.my_network_acl.id
   protocol = "all"
   rule_action = "allow"
@@ -23,7 +22,6 @@ resource "aws_network_acl_rule" "allow_all_ingress" {
 }
 
 resource "aws_network_acl_rule" "allow_all_egress" {
-  vpc_id = aws_vpc.my_vpc.id
   network_acl_id = aws_network_acl.my_network_acl.id
   protocol = "all"
   egress = true
