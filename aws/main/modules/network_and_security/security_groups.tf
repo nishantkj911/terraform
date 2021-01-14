@@ -1,5 +1,6 @@
 resource "aws_security_group" "instance_access" {
   name = "sg_instance_access"
+  vpc_id = aws_vpc.my_vpc.id
 }
 
 resource "aws_security_group_rule" "ssh_ingress" {
