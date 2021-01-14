@@ -5,7 +5,7 @@ resource "aws_vpc" "network" {
 }*/
 
 resource "aws_key_pair" "keypair" {
-  public_key = "${path.cwd}/.ssh/id_rsa.pub"
+  public_key = file("${path.cwd}/.ssh/id_rsa.pub")
   key_name = "First Keypair"
 }
 
