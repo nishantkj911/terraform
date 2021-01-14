@@ -56,7 +56,3 @@ resource "aws_security_group_rule" "http_egress" {
   security_group_id = aws_security_group.instance_access.id
   cidr_blocks = ["0.0.0.0/0"]
 }
-
-output "instance_sg_id" {
-  value = aws_security_group.instance_access.id
-}

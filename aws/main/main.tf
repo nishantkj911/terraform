@@ -20,7 +20,7 @@ resource "aws_instance" "test_instance" {
   ami = var.image_id
   instance_type = var.instance_type
   key_name = aws_key_pair.keypair.key_name
-  security_groups = [module.vpc_and_subnet.instance_sg_id]
+  vpc_security_group_ids = [module.vpc_and_subnet.instance_sg_id]
   subnet_id = module.vpc_and_subnet.subnet_id
 }
 
