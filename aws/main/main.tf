@@ -5,7 +5,7 @@ resource "aws_vpc" "network" {
 }*/
 
 // Create Security group module
-module "sg_instance" {
+module "vpc_and_subnet" {
   source = "./modules/network_and_security"
 }
 
@@ -20,7 +20,9 @@ resource "aws_instance" "test_instance" {
   ami = var.image_id
   instance_type = var.instance_type
   key_name = aws_key_pair.keypair.key_name
-  security_groups = [module.sg_instance.sg_id]
+  security_groups = [module.vpc_and_subnet.sg_id]
+  vpc_security_group_ids = [module.vpc_and_subnet.sg_id]
+  subnet_id = module.vpc_and_subnet.subnet_id
 }
 
 // TODO("Find automated way of filtering image IDs")
