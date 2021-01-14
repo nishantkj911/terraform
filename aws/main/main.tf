@@ -6,7 +6,7 @@ resource "aws_vpc" "network" {
 
 // Create Security group module
 module "sg_instance" {
-  source = "modules\/network_and_security"
+  source = "./modules/network_and_security"
 }
 
 // Create Keypair and instance
