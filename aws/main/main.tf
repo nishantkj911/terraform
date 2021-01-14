@@ -10,9 +10,18 @@ resource "aws_key_pair" "keypair" {
 }
 
 resource "aws_instance" "test_instance" {
+  count = var.instance_count
   ami = var.image_id
   instance_type = var.instance_type
   key_name = aws_key_pair.keypair.key_name
 }
 
 // TODO("Find automated way of filtering image IDs")
+
+output "inventory" {
+  value = templatefile("${path.cwd}/template.tmpl",
+    {
+      instances = aws_instance.test_instance
+    }
+  )
+}
