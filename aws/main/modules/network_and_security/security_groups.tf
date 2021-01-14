@@ -11,6 +11,6 @@ resource "aws_security_group_rule" "ssh_ingress" {
   cidr_blocks = [aws_subnet.my_subnet.cidr_block]
 }
 
-output "sg_id" {
+output "instance_sg_id" {
   value = aws_security_group.instance_access.id
 }
