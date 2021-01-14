@@ -10,7 +10,9 @@ resource "aws_key_pair" "keypair" {
 }
 
 resource "aws_instance" "test_instance" {
-  ami = "ami-0000736f"
+  ami = var.image_id
   instance_type = var.instance_type
   key_name = aws_key_pair.keypair.key_name
 }
+
+// TODO("Find automated way of filtering image IDs")
