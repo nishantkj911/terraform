@@ -34,3 +34,7 @@ output "inventory" {
     }
   )
 }
+
+output "instance_ids" {
+  value = join(" ", aws_instance.test_instance.*.id)
+}
