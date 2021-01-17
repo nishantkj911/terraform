@@ -73,3 +73,8 @@ resource "aws_security_group_rule" "https_ingress" {
   security_group_id = aws_security_group.lb_sg.id
   cidr_blocks = ["0.0.0.0/0"]
 }
+
+resource "aws_security_group" "test_sg" {
+  vpc_id = var.vpc_id
+  name = "no_access_sg"
+}
