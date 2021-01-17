@@ -21,7 +21,6 @@ resource "aws_key_pair" "keypair" {
 }
 
 resource "aws_instance" "test_instance" {
-  // TODO ("Write a script to shut down all VMs which I am managing. And also to start them using shell script")
   count = var.instance_count
   ami = var.image_id
   instance_type = var.instance_type
